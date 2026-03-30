@@ -123,10 +123,7 @@ To publish updates:
 
 ## 🚀 Future Improvements
 
-* Real-time log streaming
-* AI-based root cause analysis
-* Visualization dashboards (charts, trends)
-* Export reports (PDF/JSON)
+* Export reports (JSON)
 * Alert system for critical errors
 
 ---
