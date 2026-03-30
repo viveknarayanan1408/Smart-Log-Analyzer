@@ -1,0 +1,185 @@
+{
+  "name": "LogAnalysis",
+  "type": "object",
+  "properties": {
+    "file_name": {
+      "type": "string",
+      "description": "Name of the uploaded log file"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL of the uploaded file"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "processing",
+        "completed",
+        "failed"
+      ],
+      "default": "processing",
+      "description": "Analysis status"
+    },
+    "total_lines": {
+      "type": "number",
+      "description": "Total number of log lines"
+    },
+    "info_count": {
+      "type": "number",
+      "default": 0
+    },
+    "warn_count": {
+      "type": "number",
+      "default": 0
+    },
+    "error_count": {
+      "type": "number",
+      "default": 0
+    },
+    "debug_count": {
+      "type": "number",
+      "default": 0
+    },
+    "time_range_start": {
+      "type": "string",
+      "description": "Earliest timestamp found"
+    },
+    "time_range_end": {
+      "type": "string",
+      "description": "Latest timestamp found"
+    },
+    "top_errors": {
+      "type": "array",
+      "description": "Most frequent error messages with counts",
+      "items": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "first_seen": {
+            "type": "string"
+          },
+          "last_seen": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "anomalies": {
+      "type": "array",
+      "description": "Detected anomalies",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "slow_operations": {
+      "type": "array",
+      "description": "Operations that took unusually long",
+      "items": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string"
+          },
+          "duration_ms": {
+            "type": "number"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "hourly_distribution": {
+      "type": "array",
+      "description": "Log counts per hour",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hour": {
+            "type": "string"
+          },
+          "info": {
+            "type": "number"
+          },
+          "warn": {
+            "type": "number"
+          },
+          "error": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "ai_insights": {
+      "type": "string",
+      "description": "AI-generated insights and suggestions"
+    },
+    "critical_issues": {
+      "type": "array",
+      "description": "Critical issues identified",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "suggestion": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "parsed_logs": {
+      "type": "array",
+      "description": "Sample of parsed log entries",
+      "items": {
+        "type": "object",
+        "properties": {
+          "line_number": {
+            "type": "number"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "file_name"
+  ]
+}
